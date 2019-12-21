@@ -12,13 +12,13 @@ float draw_circle(vec2 position, float radius) {
 void main() {
 	vec2 position = gl_FragCoord.xy / u_resolution;
 
-	float r = abs(.05 + cos(u_time * .9));
-	r *= .2;
+	float radius = abs(.05 + cos(u_time * .9));
+	radius *= .2;
 
 	position.x += .1 + cos(u_time * .8) * .2;
 	position.y += .1 - sin(u_time * .4 * sin(u_time * .01)) * .4;
 
-	float circle = draw_circle(position, .01 + r);
+	float circle = draw_circle(position, .01 + radius);
 
 	gl_FragColor = vec4(vec3(circle), 1.);
 }

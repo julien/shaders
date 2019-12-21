@@ -20,9 +20,9 @@ void main() {
 	position.y += sin(u_time * .04 * cos(u_time * .01));
 
 	position *= 4.;
-	vec2 f = fract(position);
+	vec2 grid = fract(position);
 
-	float circle = draw_circle(f, .1 + r);
+	float circle = draw_circle(grid, .1 + r);
 
 	gl_FragColor = vec4(vec3(circle), 1.);
 }

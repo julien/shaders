@@ -21,11 +21,12 @@ void main(void) {
     col += ball(p, 1.5, 2.5, .2, .3);
     col += ball(p, 2., 3., .3, .4);
     col += ball(p, 2.5, 3.5, .4, .5);
-    col += ball(p, 3., 4., .5, .6);
     col += ball(p, 1.5, .5, .6, .7);
     col += ball(p, .1, .5, .6, .7);
+    col += ball(p, .2, .5, .1, .9);
+    col += ball(p, 2., 2., .9, .3);
 
     col = max(mod(col, .3), min(col, 2.));
 
-    gl_FragColor = vec4(col * .4, col * .13, col * .2, 1.);
+    gl_FragColor = vec4(col * .5, col * .3, col * .1, 1.);
 }

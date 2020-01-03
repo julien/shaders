@@ -5,4 +5,3 @@ Various shaders, mostly for experimenting and learning [glsl](https://www.khrono
 
 To view them, use [glslViewer](https://github.com/patriciogonzalezvivo/glslViewer),
 although it might be possible to use [glslsandbox](http://glslsandbox.com).
-

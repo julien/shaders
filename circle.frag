@@ -5,7 +5,7 @@ precision mediump float;
 uniform vec2 u_resolution;
 uniform float u_time;
 
-float draw_circle(vec2 position, float radius) {
+float circle(vec2 position, float radius) {
 	return step(radius, length(position - vec2(.5)));
 }
 
@@ -18,7 +18,7 @@ void main() {
 	position.x += .1 + cos(u_time * .8) * .2;
 	position.y += .1 - sin(u_time * .4 * sin(u_time * .01)) * .4;
 
-	float circle = draw_circle(position, .01 + radius);
+	float circle = circle(position, .01 + radius);
 
 	gl_FragColor = vec4(vec3(circle), 1.);
 }

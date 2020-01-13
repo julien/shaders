@@ -17,7 +17,7 @@ float rect(vec2 position, vec2 scale) {
 void main() {
 	vec2 position = gl_FragCoord.xy / u_resolution;
 
-	vec3 color = vec3(rect(position, vec2(.12, .2)));
+	vec3 color = vec3(rect(position, vec2(.4, .2)));
 
 	gl_FragColor = vec4(color, 1.);
 }

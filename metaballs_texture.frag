@@ -10,30 +10,30 @@ uniform sampler2D u_tex0;
 uniform vec2 u_tex0Resolution;
 
 float ball(vec2 p, float fx, float fy, float ax, float ay) {
-    vec2 r = vec2(p.x + sin(u_time * fx) * ax, p.y + cos(u_time * fy) * ay);
-    return .08 / length(r);
+  vec2 r = vec2(p.x + sin(u_time * fx) * ax, p.y + cos(u_time * fy) * ay);
+  return .08 / length(r);
 }
 
 void main(void) {
-    vec2 q = gl_FragCoord.xy / u_resolution.xy;
-    vec2 p = -1. + 2. * q;
-    p.x	*= u_resolution.x / u_resolution.y;
+  vec2 q = gl_FragCoord.xy / u_resolution.xy;
+  vec2 p = -1. + 2. * q;
+  p.x *= u_resolution.x / u_resolution.y;
 
-    float col = .02;
-    col += ball(p, 1., 2., .1, .2);
-    col += ball(p, 1.5, 2.5, .2, .3);
-    col += ball(p, 2., 3., .3, .4);
-    col += ball(p, 2.5, 3.5, .4, .5);
-    col += ball(p, 1.5, .5, .6, .7);
-    col += ball(p, .1, .5, .6, .7);
-    col += ball(p, .2, .5, .1, .9);
-    col += ball(p, 2., 2., .9, .3);
+  float col = .02;
+  col += ball(p, 1., 2., .1, .2);
+  col += ball(p, 1.5, 2.5, .2, .3);
+  col += ball(p, 2., 3., .3, .4);
+  col += ball(p, 2.5, 3.5, .4, .5);
+  col += ball(p, 1.5, .5, .6, .7);
+  col += ball(p, .1, .5, .6, .7);
+  col += ball(p, .2, .5, .1, .9);
+  col += ball(p, 2., 2., .9, .3);
 
-    col = max(mod(col, .3), min(col, 2.));
+  col = max(mod(col, .2), min(col, 2.));
 
-		vec2 texPos = gl_FragCoord.xy / u_tex0Resolution;
-		vec4 tex = texture2D(u_tex0, vec2(col * .5));
+  vec2 texPos = gl_FragCoord.xy / u_tex0Resolution;
+  vec4 tex = texture2D(u_tex0, vec2(col * .5));
 
-    /* gl_FragColor = vec4(col * .5, col * .3, col * .1, 1.); */
-    gl_FragColor = vec4(tex);
+  /* gl_FragColor = vec4(col * .5, col * .3, col * .1, 1.); */
+  gl_FragColor = vec4(tex);
 }
